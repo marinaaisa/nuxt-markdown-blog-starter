@@ -1,0 +1,38 @@
+//COLORS
+$primary:             #6C5CFF;
+$primary-light:       lighten($primary,20%);
+$primary-lighter:     lighten($primary,30%);
+$secondary:           #030303;
+$grey-1:     #161618;
+$grey-2:   #767676;
+$grey-3:   #b5b5b5;
+$secondary-super-lighter:   #e4e4e4;
+$background-primary:  #FFFFFF;
+$background-primary-darker:  #F6F7FB;
+$background-secondary:$secondary;
+$background-secondary-darker: #000000;
+$success:             #57BC27;
+$warning:             #F9B13D;
+$text-negative:       white;
+
+          //name //color //text or false
+$colors:  "primary" $primary $text-negative,
+          "primary-light" $primary-light $text-negative,
+          "primary-lighter" $primary-lighter false,
+          "secondary" $secondary $text-negative,
+          "secondary-light" $grey-1 $text-negative,
+          "grey-2" $grey-2 false,
+          "background-primary" $background-primary false,
+          "background-secondary" $background-secondary false,
+          "white" white false,
+          "black" black $text-negative,
+          "success" $success $text-negative,
+          "warning" $warning $text-negative;
+
+$gutter: 				  2.4rem;
+$header-height:             7rem;
+$header-height-breakpoint:  5rem;
+$nav-responsive-width:      26rem;
+
+$border-radius: 					  3px;
+$shadow:									  0 2px 4px rgba(black, .08);

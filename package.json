@@ -1,0 +1,31 @@
+{
+  "name": "nuxt-markdown-blog-starter",
+  "version": "1.0.0",
+  "author": "marinaaisa <marina@marinaaisa.com>",
+  "private": true,
+  "engines": {
+    "node": ">=8.0.0",
+    "npm": ">=5.0.0"
+  },
+  "dependencies": {
+    "@nuxtjs/style-resources": "^0.1.2",
+    "normalize.css": "^8.0.1",
+    "nuxt": "^2.6.2",
+    "nuxt-i18n": "^5.8.5",
+    "nuxt-webfontloader": "^1.0.0",
+    "vue-lazyload": "^1.2.6"
+  },
+  "scripts": {
+    "dev": "nuxt",
+    "generate": "nuxt generate",
+    "analyze": "nuxt build --analyze"
+  },
+  "devDependencies": {
+    "frontmatter-markdown-loader": "^1.6.0",
+    "highlight.js": "^9.15.6",
+    "node-sass": "^4.11.0",
+    "responsive-loader": "^1.2.0",
+    "sass-loader": "^7.1.0",
+    "sharp": "^0.22.0"
+  }
+}

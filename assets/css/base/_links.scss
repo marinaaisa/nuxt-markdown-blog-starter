@@ -1,0 +1,85 @@
+a {
+  text-decoration: none;
+  color: $primary;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  &:hover,
+  &.active,
+  &:focus,
+  .nuxt-link-active{
+    outline: 0;
+    text-decoration: none;
+  }
+
+  &.ani {
+    text-decoration: none;
+    &:hover,
+    &.active,
+    &:focus{
+      color: $primary-light;
+    }
+    span {
+      display: inline-block;
+      position: relative;
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 1.5px;
+        bottom: .4px;
+        width: 0;
+        background-color: $primary-light;
+        -webkit-transition-property: width;
+        -moz-transition-property: width;
+        -o-transition-property: width;
+        transition-property: width;
+        -webkit-transition-duration: .4s;
+        -moz-transition-duration: .4s;
+        -o-transition-duration: .4s;
+        transition-duration: .4s;
+      }
+    }
+  }
+  &.dribbble {
+    color: #ea4c89;
+    &:hover,
+    &.active,
+    &:focus{
+      color: lighten(#ea4c89,10%);
+    }
+    span:after {
+      background-color: lighten(#ea4c89,10%);
+    }
+  }
+  &.linkedin {
+    color: #0077B5;
+    &:hover,
+    &.active,
+    &:focus{
+      color: lighten(#0077B5,10%);
+    }
+    span:after {
+      background-color: lighten(#0077B5,10%);
+    }
+  }
+  &.twitter {
+    color: #00aced;
+    &:hover,
+    &.active,
+    &:focus{
+      color: lighten(#00aced,10%);
+    }
+    span:after {
+      background-color: lighten(#00aced,10%);
+    }
+  }
+}
+a.ani:hover span:after {
+  width: 100%;
+}

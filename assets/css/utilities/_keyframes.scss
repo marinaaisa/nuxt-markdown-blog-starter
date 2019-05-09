@@ -1,0 +1,55 @@
+// Keyframes
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+
+@keyframes fadeOut {
+  0%{
+    opacity: 1
+  }
+  100%{
+    opacity: 0
+  }
+}
+
+@keyframes shadow {
+  0% {
+    box-shadow: 0;
+  }
+  50% {
+    box-shadow: 0 2px 6px rgba(black, .12);
+  }
+  100% {
+    box-shadow: $shadow;
+  }
+}
+
+@keyframes bottom-down {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes escale10 {
+  0% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

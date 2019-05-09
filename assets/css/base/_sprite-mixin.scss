@@ -1,0 +1,59 @@
+@function divideEscape0($a,$b){
+  @if ($b ==0){@return 0}
+  @return $a/$b;
+}
+@function getImagePositionFromSprite($iconName,$sprite-name,$columns,$rows){
+  $index: index($sprite-name,$iconName);
+  $row: ceil($index/$columns);
+  $column: $index % $columns;
+  @return percentage(divideEscape0(1,($columns - 1))*($column - 1)) percentage(divideEscape0(1,($rows - 1))*($row - 1));
+}
+  
+@mixin backgroundImageBySprite($sprite,$name){
+  background-image: url(map_get($sprite,url));
+  background-position: getImagePositionFromSprite(
+    $name,
+    map_get($sprite,names),
+    map_get($sprite,columns),
+    map_get($sprite,rows)
+  );
+  background-size: cover;
+  display: inline-block;
+} 
+
+$emojis-white-bg: (
+  'art', 'writing', 'thinking', 'girl-coding','nerd','loved','plane', 'rock-girl'
+);
+
+$emoji-white-bg-sprite:(
+  url:'../../assets/images/emojis-white-bg.png', 
+  names: $emojis-white-bg,
+  columns: 8,
+  rows: 1
+);
+
+@mixin emoji-white-bg($name){
+  @include backgroundImageBySprite($emoji-white-bg-sprite,$name)
+}
+
+
+@each $emoji in $emojis-white-bg {
+  .emoji--#{$emoji} {
+    @include emoji-white-bg('#{$emoji}')
+  }
+}
+
+.emoji-title {
+  margin-left: 1rem;
+  vertical-align: text-bottom;
+  height: 32px;
+  width: 32px;
+}
+
+.emoji-small {
+  height: 20px;
+  vertical-align: text-bottom;
+  width: 20px;
+}
+
+  

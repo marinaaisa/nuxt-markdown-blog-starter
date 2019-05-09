@@ -1,0 +1,23 @@
+@font-face {
+	font-family: "Graphik";
+	font-style: normal;
+  font-display: swap;
+	font-weight: 200;
+  src: url("/fonts/Graphik-Regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Graphik";
+	font-style: normal;
+  font-display: swap;
+	font-weight: 600;
+  src: url("/fonts/Graphik-Semibold.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Tiempos Headline";
+	font-style: normal;
+  font-display: swap;
+	font-weight: 400;
+  src: url("/fonts/Tiempos-Headline-Semibold.woff2") format("woff2");
+}
