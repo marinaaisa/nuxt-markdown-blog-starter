@@ -1,10 +1,5 @@
 <template>
   <footer>
-    <div class="footer__main">
-      <div class="container">
-        <div class="footer__contact" v-html="$t('footer.content')"/>
-      </div>
-    </div>
     <div class="footer__info">
       <div class="container footer__info-container">
         <div class="footer__copyright">
@@ -22,9 +17,6 @@ export default {
   computed: {
     year () {
       return new Date().getFullYear()
-    },
-    copyright () {
-      return $t('footer.content')
     }
   }
 }
@@ -32,23 +24,6 @@ export default {
 
 <style lang="scss">
 .footer {
-	&__main {
-		padding: 50px 0;
-		background-color: $background-secondary;
-		border-bottom: 1px solid darken($grey-1,40%);
-  }
-  
-	&__contact {
-		text-align: center;
-  }
-  
-	&__logo {
-		height: 5rem;
-		width: 18rem;
-		display: inline-block;
-		margin-bottom: 1em;
-	}
-
 	&__info {
 		background-color: $background-secondary;
 		padding: 1.5em 0;

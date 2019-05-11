@@ -28,10 +28,6 @@ export default {
     margin-right: 2rem;
   }
 
-  &--white {
-    color: white;
-  }
-
   @media (max-width: $screen-sm){
     border-color: white;
     margin-bottom: 2rem;

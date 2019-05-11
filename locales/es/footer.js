@@ -1,4 +1,3 @@
 export default {
-  content: '<span class="text-negative">Si has llegado hasta aquí, me encantaría que me devolvieras un "Hola", <br>escribiéndome un <a target="_blank" href="https://twitter.com/MarinaAisa" class="ani twitter"><span>tweet</span></a>, o enviándome un <a target="_blank" href="mailto:marina@marinaaisa.com" class="ani"><span>email</span></a>. <br></span>Como ya ves, me encantan los emojis, así que no olvides añadir uno.',
   credits: 'Web app diseñada y programada por <a target="_blank" href="https://twitter.com/MarinaAisa" class="ani"><span>Marina Aisa</span></a> usando Vue.js + Nuxt.'
 }

@@ -47,7 +47,6 @@
 <script lang="js">
   
   import DynamicMarkdown from "~/components/Markdown/DynamicMarkdown.vue"
-  import Card from "~/components/Card.vue"
   import Subscribe from "~/components/Subscribe.vue"
 
 
@@ -83,7 +82,7 @@
       seo: false
     },
 
-    components: { DynamicMarkdown, Card, Subscribe },
+    components: { DynamicMarkdown, Subscribe },
 
     head () {
       return {

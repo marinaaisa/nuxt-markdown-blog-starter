@@ -24,12 +24,7 @@ const I18N = {
   seo: false,
   langDir: '/locales/',
   defaultLocale: 'en',
-  parsePages: false,
-  pages: {
-    'work/_slug': {
-      es: '/trabajo/:slug'
-    }
-  }
+  parsePages: false
 }
 
 module.exports = {

@@ -1,4 +1,0 @@
-export default {
-  title: 'About me',
-  content: 'I’m a <span class="about__highlight">UX Engineer (product design and front-end)</span> based in <span class="about__highlight">Barcelona</span>. I studied a media engineering degree in Helsinki and Hong Kong, worked in big corporations and innovative startups and traveled the world as much as I could. I’m interested in the whole visual part of the web and its usability, performance and accessibility. Also I’m interested in feminism and LGBT rights. My surname is Aragonese, as Zaragoza (Spain), where I was born 23 years ago with my two triplet brothers.'
-}

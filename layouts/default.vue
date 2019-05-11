@@ -1,23 +1,16 @@
 <template>
   <div class="layout">
-    <TheHeader @sidenavToggle="displaySidenav = !displaySidenav" />
-    <TheSidenav
-      :show="displaySidenav"
-      @close="displaySidenav = false" />
     <nuxt class="nuxt-content"/>
     <Footer/>
   </div>
 </template>
 <script>
-  import TheHeader from '~/components/TheHeader'
   import TheSidenav from '~/components/Navigation/TheSideNav'
   import Footer from '~/components/Sections/Footer'
 
   export default {
     components: {
-      Footer,
-      TheHeader,
-      TheSidenav
+      Footer
     },
     data() {
       return {

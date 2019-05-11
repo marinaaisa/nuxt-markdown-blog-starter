@@ -1,7 +1,12 @@
 <template>
   <section>
-    <h2>{{ $t('posts') }}</h2>
-    <span class="emoji-title emoji--writing"/>
+    <div style="display: flex;">
+      <div>
+        <h2>{{ $t('posts') }}</h2>
+        <span class="emoji-title emoji--writing"/>
+      </div>
+      <LangSwitcher/>
+    </div>
     <ul class="blogs">
       <blog-card
         v-for="blog in blogs"
@@ -12,8 +17,10 @@
 </template>
 <script>
 import BlogCard from "~/components/BlogCard.vue";
+import LangSwitcher from '~/components/LangSwitcher'
+
 export default {
-  components: { BlogCard },
+  components: { BlogCard, LangSwitcher },
   props: {
     blogs: {
       type: Array

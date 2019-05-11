@@ -1,6 +1,16 @@
 <template lang="html">
-  <div v-lazy-container="{ selector: 'img' }" :class="`image-placeholder ${hasRadius}`">
-    <img :data-src="imageRequired" :data-loading="imageRequired.placeholder" :width="width" :height="height" :class="classes" :alt="alt" />
+  <div
+    v-lazy-container="{ selector: 'img' }"
+    :class="`image-placeholder ${isRounded}`"
+  >
+    <img
+      :data-src="imageRequired"
+      :data-loading="imageRequired.placeholder"
+      :width="width"
+      :height="height"
+      :class="classes"
+      :alt="alt"
+    />
   </div>
 </template>
 
@@ -25,7 +35,7 @@ export default {
     alt: {
       type: String
     },
-    radius: {
+    rounded: {
       type: Boolean,
       default: false
     }
@@ -34,8 +44,8 @@ export default {
     imageRequired () {
       return require(`../assets/images/${this.imageURL}`)
     },
-    hasRadius () {
-      return this.radius ? 'image-placeholder--radius' : ''
+    isRounded () {
+      return this.rounded ? 'image-placeholder--rounded' : ''
     }
   }
 }
@@ -47,7 +57,7 @@ export default {
   overflow: hidden;
   line-height: 0;
 
-  &--radius {
+  &--rounded {
     border-radius: 100%;
   }
 }
