@@ -10,7 +10,7 @@
   "dependencies": {
     "@nuxtjs/style-resources": "^0.1.2",
     "normalize.css": "^8.0.1",
-    "nuxt": "^2.6.2",
+    "nuxt": "^2.7.1",
     "nuxt-i18n": "^5.8.5",
     "nuxt-webfontloader": "^1.0.0",
     "vue-lazyload": "^1.2.6"
