@@ -55,7 +55,7 @@
 
     computed: {
       ogImage: function () {
-        return `${process.env.baseUrl}/images/fb-banner.jpg`;
+        return;
       }
     }
   }
