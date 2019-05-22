@@ -5,17 +5,11 @@
   </div>
 </template>
 <script>
-  import TheSidenav from '~/components/Navigation/TheSideNav'
   import Footer from '~/components/Sections/Footer'
 
   export default {
     components: {
       Footer
-    },
-    data() {
-      return {
-        displaySidenav: false
-      }
     }
   }
 </script>

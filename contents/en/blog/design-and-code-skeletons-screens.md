@@ -66,7 +66,13 @@ I don't usually design small animations, because I directly code them in CSS to 
 
 Let's suppose that you already have coded the table layout and it's this one:
 
-<Component :is="extraComponentLoader" :blend="false" :verticalAnimation="false" :horizontalAnimation="false" :isLoading="false" />
+<Component 
+:is="extraComponentLoader"
+:blend="false"
+:verticalAnimation="false"
+:horizontalAnimation="false"
+:isLoading="false"
+/>
 
 ### Step 1: Code the 3 rows with its fake content.
 
@@ -147,7 +153,8 @@ It's based on some properties that we've seen in <strong>Photoshop or Sketch</st
 <image-responsive
     imageURL="blog/design-and-code-skeletons-screens/opacity-properties.png"
     width="100%"
-    alt="Foto de propiedades de opacidad"/>
+    alt="Opacity property picture"
+/>
 
 One of the blending modes is called <inline-code>overlay</inline-code>, which makes the dark colors of the layer to which we apply it only to be reflected in other dark colors of layers that are below but not to white layers.
 

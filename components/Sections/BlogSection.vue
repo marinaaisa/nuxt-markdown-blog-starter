@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div style="display: flex;">
+    <div class="blogs__top">
       <div>
         <h2>{{ $t('posts') }}</h2>
         <span class="emoji-title emoji--writing"/>
@@ -36,6 +36,13 @@ export default {
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
     display: grid;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 4rem;
   }
 }
 </style>

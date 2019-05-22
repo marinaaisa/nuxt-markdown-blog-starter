@@ -3,7 +3,14 @@
     <div class="intro">
       <div class="elevate-cover">
         <div class="elevate-cover__textOffset">
-          <div class="elevate-cover__text">
+          <div class="elevate-cover__left">
+            <nuxt-link :to="localePath('index')">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 4" aria-hidden="true" style="width: 16px; transform: rotate(180deg);">
+                  <polygon fill="currentColor" points="0 2.33 4.72 2.33 3.53 3.53 4 4 6 2 4 0 3.53 0.47 4.72 1.67 0 1.67 0 2.33"/>
+              </svg>
+              {{ $t('comeBack') }}</nuxt-link>
+          </div>
+          <div class="elevate-cover__left">
             <span class="blogSelected-year">{{ year }}</span>
             —
             <nuxt-link
@@ -47,7 +54,6 @@
 <script lang="js">
   
   import DynamicMarkdown from "~/components/Markdown/DynamicMarkdown.vue"
-  import Subscribe from "~/components/Subscribe.vue"
 
 
   export default {
@@ -82,7 +88,7 @@
       seo: false
     },
 
-    components: { DynamicMarkdown, Subscribe },
+    components: { DynamicMarkdown},
 
     head () {
       return {
@@ -177,10 +183,11 @@
     width: 100%;
   }
 
-  &__text {
+  &__left {
     max-width: 500px;
     width: 100%;
     padding: 2.4rem;
+    margin-bottom: auto;
 
     @media (min-width: $screen-md){
       margin-left: auto;
@@ -192,7 +199,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
   }
 
   &__title {

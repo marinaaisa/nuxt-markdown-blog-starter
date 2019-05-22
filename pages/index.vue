@@ -32,6 +32,10 @@
     
     components: { BlogSection },
 
+    transition: {
+      name: 'slide-fade'
+    },
+
     head () {
       return {
         title: this.$t('indexPageHead.title'),

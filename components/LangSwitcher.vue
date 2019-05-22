@@ -1,7 +1,9 @@
 <template>
   <select v-model="selected" @change="changeLocale()" class="lang-switcher">
     <option :value="selected" selected>{{ $i18n.locale }}</option>
-    <option v-for="locale in $i18n.locales" v-if="locale.code !== $i18n.locale" :key="locale.code" >{{ locale.code }}</option>
+    <option v-for="locale in $i18n.locales" v-if="locale.code !== $i18n.locale" :key="locale.code" >
+      {{ locale.code }}
+    </option>
   </select>
 </template>
 
@@ -21,18 +23,6 @@ export default {
 }
 </script>
 <style lang="scss">
-.lang-switcher {
-  margin-right: 2rem;
-  
-  @media (min-width: $screen-sm){
-    margin-right: 2rem;
-  }
-
-  @media (max-width: $screen-sm){
-    border-color: white;
-    margin-bottom: 2rem;
-  }
-}
 select {
   border-radius: 0;
   color: $primary;
@@ -48,10 +38,6 @@ select {
   text-transform: uppercase;
   transition: border-color .3s;
   cursor: pointer;
-
-  .the-header--dark & {
-    background-color: $secondary;
-  }
 
   &:hover {
     border-color: $primary;

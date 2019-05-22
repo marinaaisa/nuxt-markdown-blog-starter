@@ -112,7 +112,7 @@ Además de que escribiendo en Medium **no tienes el control sobre tu blog** como
 Gracias a la herramienta [Lighthouse](https://developers.google.com/web/fundamentals/performance/audit/) de Google podemos analizar y comparar Medium con mi web.
 
 <image-responsive
-    imageURL="performance.jpg"
+    imageURL="blog/vue-nuxt-blog/performance.jpg"
     :width="'952'"
     :height="'509'"
     alt="performance" />
