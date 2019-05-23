@@ -9,9 +9,12 @@
   Nuxt + Markdown blog starter
 </h1>
 <p align="center">
-  This is not an official project. It's made by <a href="https://marinaaisa.com/">Marina Aísa</a> and you can contribute to it submitting a pull-request.
+  This is not an official project. It's made by <a href="https://marinaaisa.com/">Marina Aísa</a> and you can contribute submitting a pull-request.
   </a>
 </p>
+
+## ⚡️ Live
+[Check it live](https://nuxt-markdown-blog-starter.netlify.com/)
 
 ## ✨ Quick start
 
@@ -54,6 +57,7 @@
     ├── plugins
     ├── static
     ├── .gitignore
+    ├── LICENSE
     ├── nuxt.config.js
     ├── package-lock.json
     ├── package.json
@@ -79,13 +83,15 @@
 
 10. **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
 
-11. **`nuxt-config.js`**: This is the main configuration file for a Nuxt site. This is where you can specify information about your site (metadata) like the site title and description, which Nuxt plugins you’d like to include, etc. (Check out the [config docs](https://nuxtjs.org/guide/configuration) for more detail).
+11. **`LICENSE`**: This is licensed under the MIT license.
 
-12. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+12. **`nuxt-config.js`**: This is the main configuration file for a Nuxt site. This is where you can specify information about your site (metadata) like the site title and description, which Nuxt plugins you’d like to include, etc. (Check out the [config docs](https://nuxtjs.org/guide/configuration) for more detail).
 
-13. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+13. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
 
-14. **`README.md`**: A text file containing useful reference information about your project.
+14. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+
+15. **`README.md`**: A text file containing useful reference information about your project.
 
 ## 💫 Deploy
 
