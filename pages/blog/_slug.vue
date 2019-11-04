@@ -43,14 +43,13 @@
       </div>
     </div>
     <div class="container small">
-      <no-ssr>
+      <client-only>
         <DynamicMarkdown
           :render-func="renderFunc"
           :static-render-funcs="staticRenderFuncs"
           :extra-component="extraComponent" />
-      </no-ssr>
+      </client-only>
     </div>
-    <Subscribe/>
   </div>
 </template>
 
