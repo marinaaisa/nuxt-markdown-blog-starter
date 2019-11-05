@@ -40,8 +40,8 @@
     },
 
     created () {
-      this.templateRender = new Function(this.renderFunc)()
-      this.$options.staticRenderFns = new Function(this.staticRenderFuncs)()
+      this.templateRender = this.renderFunc
+      this.$options.staticRenderFns = this.staticRenderFuncs
     }
   }
 </script>
