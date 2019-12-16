@@ -20,23 +20,23 @@ Cuando trabajas con una librería como Vue, la información de los componentes s
 ## La estructura para utilizar Vuex
 Vuex se distribuye de la siguiente manera:
 
-- **Estado** (en el código <inline-code>state</inline-code>):
+- **Estado** (en el código `state`):
   - Es un objeto que puede contener cualquier tipo de información: strings, arrays u otros objetos.
   - Es la información que almacenamos de forma centralizada en toda la app.
-- **Mutaciones** (en el código <inline-code>mutations</inline-code>):
+- **Mutaciones** (en el código `mutations`):
   - Son funciones.
   - Son las únicas funciones que pueden modificar el estado.
   - Son llamadas por las acciones.
   - Se pueden inicializar en el componente a utilizar a través de commit o inicializarse a través de una acción.
   - Son síncronas.
-- **Acciones** (en el código <inline-code>actions</inline-code>):
+- **Acciones** (en el código `actions`):
   - Son funciones.
   - Poseen la lógica de negocio.
   - Para cambiar el estado deben de llamar a mutaciones a través de *commit*.
   - Pueden llamar otras acciones a través de *dispatch*. 
   - La forma de inicializarse en el componente es a través de *dispatch* o utilizando modulos.
   - Son asíncronas.
-- **Getters** (en el código <inline-code>getters</inline-code>).
+- **Getters** (en el código `getters`).
   - Son funciones.
   - No cambian el estado pero sí que lo formatean para que podemos utilizar esa información de la manera que la necesitemos.
   - Sería lo más parecido a una propiedad *computed* en el componente. 

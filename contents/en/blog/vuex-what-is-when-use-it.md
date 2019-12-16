@@ -20,23 +20,23 @@ When you work with a library like Vue, the component information is transported 
 ## Its structure
 Vuex is distributed as follows:
 
-- **State** (in the code <inline-code>state</inline-code>):
+- **State** (in the code `state`):
   - It's an object that can contain any type of information: strings, arrays or other objects.
   - It's information stored centrally throughout the app.
-- **Mutations** (in the code <inline-code>mutations</inline-code>):
+- **Mutations** (in the code `mutations`):
   - They are functions.
   - They are the only functions that can modify the state.
   - They are called by the actions.
   - They can be initialized in the component to be used through *commit* or initialized through an action.
   - They are synchronous.
-- **Actions** (in the code <inline-code>actions</inline-code>):
+- **Actions** (in the code `actions`):
   - They are functions.
   - They have the business logic.
   - To change the state they must call mutations via *commit*.
   - You can call other actions through *dispatch*.
   - The way to initialize them in the component is through *dispatch* or using modules.
   - They are asynchronous.
-- **Getters** (in the code <inline-code>getters</inline-code>).
+- **Getters** (in the code `getters`).
   - They are functions.
   - They don't change the state but they do format it so that we can use that information in the way we need it.
   - It would be very similar to a computed property in the component.

@@ -76,7 +76,7 @@ Let's suppose that you already have coded the table layout and it's this one:
 
 ### Step 1: Code the 3 rows with its fake content.
 
-Make a <inline-code>tbody</inline-code> alternative to the real table that will change if the boolean <inline-code>isLoading</inline-code> is true. Within this <inline-code>tbody</inline-code> we will generate 3 rows where each one has the number of columns that we already know and each column has a <inline-code>div</inline-code> of a random width. I did it with Vue.js but you can do it with any other framework, it's just modifying the template according to a boolean variable that can be changed.
+Make a `tbody` alternative to the real table that will change if the boolean `isLoading` is true. Within this `tbody` we will generate 3 rows where each one has the number of columns that we already know and each column has a `div` of a random width. I did it with Vue.js but you can do it with any other framework, it's just modifying the template according to a boolean variable that can be changed.
 
 ```xml
 <tbody v-if="isLoading">
@@ -106,7 +106,7 @@ Result:
 
 ### Step 2: Create the vertical animation
 
-<strong>This animation will show one row after another and it will also remove them once the 3 of them are loaded.</strong> First, we define it and then we apply it to <inline-code>datagrid__row</inline-code>. In rows 2 and 3 we will put a delay to obtain the desired effect: one row after another.
+<strong>This animation will show one row after another and it will also remove them once the 3 of them are loaded.</strong> First, we define it and then we apply it to `datagrid__row`. In rows 2 and 3 we will put a delay to obtain the desired effect: one row after another.
 
 ```css
 @keyframes aniVertical {
@@ -156,11 +156,11 @@ It's based on some properties that we've seen in <strong>Photoshop or Sketch</st
     alt="Opacity property picture"
 />
 
-One of the blending modes is called <inline-code>overlay</inline-code>, which makes the dark colors of the layer to which we apply it only to be reflected in other dark colors of layers that are below but not to white layers.
+One of the blending modes is called `overlay`, which makes the dark colors of the layer to which we apply it only to be reflected in other dark colors of layers that are below but not to white layers.
 
-It turns out that we have these same properties available in CSS through <inline-code>mix-blend-mode</inline-code>. This is great for solving the problem of having different content divs where the animation has to go through.
+It turns out that we have these same properties available in CSS through `mix-blend-mode`. This is great for solving the problem of having different content divs where the animation has to go through.
 
-We will apply an <inline-code>:before</inline-code> to <inline-code>datagrid__row</inline-code> with an absolute position so it will cover the whole row and then we will create an animation, <inline-code>aniHorizontal</inline-code>, to run through the content.
+We will apply an `:before` to `datagrid__row` with an absolute position so it will cover the whole row and then we will create an animation, `aniHorizontal`, to run through the content.
 
 ```css
 @keyframes aniHorizontal {
@@ -200,7 +200,7 @@ Result:
 
 <Component :is="extraComponentLoader" :blend="false" />
 
-Finally we apply the <inline-code>mix-blend-mode: overlay</inline-code> and magically we will get the vertical and horizontal animations together.
+Finally we apply the `mix-blend-mode: overlay` and magically we will get the vertical and horizontal animations together.
 
 ```css
 .datagrid__row:before {
@@ -214,17 +214,17 @@ Result:
 ## Play with the final result
 
 All these examples that you've seen before are not images or videos, they are an unique component of Vue that I changed in each case modifying its props.
-Now you can play with this component variation by clicking the checkbox of <inline-code>loading</inline-code> that will change the status from normal to loading state.
+Now you can play with this component variation by clicking the checkbox of `loading` that will change the status from normal to loading state.
 
 <Component :is="extraComponentLoader" checkbox :isLoading="false" />
 
-In a real application, <inline-code>isLoading</inline-code> variable will be given by the system which implements the asynchronous load and it'll be a boolean type too, like this checkbox.
+In a real application, `isLoading` variable will be given by the system which implements the asynchronous load and it'll be a boolean type too, like this checkbox.
 
 ## Things to keep in mind about blend-mode
 
-- <inline-code>Mix-blend-mode: overlay</inline-code> CSS property only works if the rows' backgrounds are totally white or totally black (the vast majority of the cases).
+- `Mix-blend-mode: overlay` CSS property only works if the rows' backgrounds are totally white or totally black (the vast majority of the cases).
 
-- <inline-code>Mix-blend-mode</inline-code> for now it's not available for IE or Edge. But this will change within a certain time, says [Microsoft](https://developer.microsoft.com/en-us/microsoft-edge/platform/status/mixblendmode/). You can see its support in different browsers [here](https://caniuse.com/#feat=css-mixblendmode).
+- `Mix-blend-mode` for now it's not available for IE or Edge. But this will change within a certain time, says [Microsoft](https://developer.microsoft.com/en-us/microsoft-edge/platform/status/mixblendmode/). You can see its support in different browsers [here](https://caniuse.com/#feat=css-mixblendmode).
 
 If you want to create a Skeleton Screen on a background that is not black or white, or you have to give support to IE or Edge, I suggest you [this other solution that uses SVG](http://danilowoz.com/create-vue-content-loader/). It's much more complex, I'm not sure you can do it between different divs and it requires you to use an external package but it's the best alternative I could find.
 
