@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@nuxtjs/style-resources": "^1.0.0",
+    "markdown-it": "^10.0.0",
+    "markdown-it-prism": "^2.0.3",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.10.2",
     "nuxt-i18n": "^6.4.1",
@@ -22,7 +24,6 @@
   },
   "devDependencies": {
     "frontmatter-markdown-loader": "^3.1.0",
-    "highlight.js": "^9.17.1",
     "node-sass": "^4.13.0",
     "responsive-loader": "^1.2.0",
     "sass-loader": "^8.0.0",

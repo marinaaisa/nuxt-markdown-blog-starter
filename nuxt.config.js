@@ -5,6 +5,15 @@ import blogsEn from './contents/en/blogsEn.js'
 import blogsEs from './contents/es/blogsEs.js'
 import Mode from "frontmatter-markdown-loader/mode"
 
+import MarkdownIt from 'markdown-it'
+import mip from 'markdown-it-prism'
+
+const md = new MarkdownIt({
+  html: true,
+  typographer: true
+})
+md.use(mip)
+
 const productionUrl = {
   en: "/en",
   es: "/es"
@@ -59,7 +68,8 @@ module.exports = {
   */
   css: [
     'normalize.css/normalize.css',
-    '@/assets/css/main.scss'
+    '@/assets/css/main.scss',
+    '@/assets/css/prism-material-light.css'
   ],
 
   build: {
@@ -72,9 +82,12 @@ module.exports = {
         loader: 'frontmatter-markdown-loader',
         include: path.resolve(__dirname, 'contents'),
         options: {
-          mode: [Mode.VUE_RENDER_FUNCTIONS],
+          mode: [Mode.VUE_COMPONENT],
           vue: {
             root: "dynamicMarkdown"
+          },
+          markdown(body) {
+            return md.render(body)
           }
         }
       }, {
