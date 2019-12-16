@@ -14,14 +14,15 @@
           <div class="elevate-cover__left">
             <span class="blogSelected-year">{{ year }}</span>
             —
-            <nuxt-link
-              v-if="trans"
-              v-for="(locale, i) in showLocales"
-              :key="i"
-              :to="`${locale.code == 'en' ? '' : '/' + locale.code}/blog/${trans}`"
-            >
-                {{ $t('changeLanguagePost') }}
-            </nuxt-link>
+            <template v-if="trans">
+              <nuxt-link
+                v-for="(locale, i) in showLocales"
+                :key="i"
+                :to="`${locale.code == 'en' ? '' : '/' + locale.code}/blog/${trans}`"
+              >
+                  {{ $t('changeLanguagePost') }}
+              </nuxt-link>
+            </template>
             <span v-else>{{ $t('soonLanguagePost') }}</span>
             <h1 class="elevate-cover__title">
               {{ title }}
@@ -43,54 +44,18 @@
       </div>
     </div>
     <div class="container small">
-      <client-only>
-        <DynamicMarkdown
-          :render-func="renderFunc"
-          :static-render-funcs="staticRenderFuncs"
-          :extra-component="extraComponent" />
-      </client-only>
+      <component :is="component"/>
     </div>
   </div>
 </template>
 
 <script lang="js">
-  
-  import DynamicMarkdown from "~/components/Markdown/DynamicMarkdown.vue"
-
 
   export default {
-
-    async asyncData ({params, app}) {
-      const fileContent = await import(`~/contents/${app.i18n.locale}/blog/${params.slug}.md`)
-      const attr = fileContent.attributes
-      return {
-        name: params.slug,
-        title: attr.title,
-        trans: attr.trans,
-        year: attr.year,
-        id: attr.id,
-        owner: attr.owner,
-        colors: attr.colors,
-        role: attr.role,
-        cardAlt: attr.cardAlt,
-        noMainImage: attr.noMainImage,
-        description: attr.description,
-        related: attr.related,
-        extraComponent: attr.extraComponent,
-        renderFunc: fileContent.vue.render,
-        staticRenderFuncs: fileContent.vue.staticRenderFns,
-        image: {
-          main: attr.image && attr.image.main,
-          og: attr.image && attr.image.og
-        }
-      }
-    },
 
     nuxtI18n: {
       seo: false
     },
-
-    components: { DynamicMarkdown},
 
     head () {
       return {
@@ -114,6 +79,29 @@
 
     transition: {
       name: 'slide-fade'
+    },
+
+    data() {
+      return {
+        name: null,
+        title: null,
+        trans: null,
+        year: null,
+        id: null,
+        owner: null,
+        colors: null,
+        role: null,
+        cardAlt: null,
+        noMainImage: null,
+        description: null,
+        related: null,
+        extraComponent: null,
+        component: null,
+        image: {
+          main: null,
+          og: null
+        }
+      }
     },
 
     computed: {
@@ -143,6 +131,29 @@
           return null
         }
         return () => import(`~/components/blog/${this.extraComponent}.vue`)
+      }
+    },
+
+    created() {
+      const fileContent = require(`~/contents/${this.$i18n.locale}/blog/${this.$route.params.slug}.md`)
+      const attr = fileContent.attributes
+      this.name = this.$route.params.slug,
+      this.title = attr.title,
+      this.trans = attr.trans,
+      this.year = attr.year,
+      this.id = attr.id,
+      this.owner = attr.owner,
+      this.colors = attr.colors,
+      this.role = attr.role,
+      this.cardAlt = attr.cardAlt,
+      this.noMainImage = attr.noMainImage,
+      this.description = attr.description,
+      this.related = attr.related,
+      this.extraComponent = attr.extraComponent,
+      this.component = fileContent.vue.component,
+      this.image = {
+        main: attr.image && attr.image.main,
+        og: attr.image && attr.image.og
       }
     }
   }
