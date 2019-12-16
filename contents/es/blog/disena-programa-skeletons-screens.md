@@ -70,7 +70,7 @@ Teniendo en cuenta que ya tenemos la tabla maquetada y es esta:
 
 ### Paso 1: Maquetar las 3 filas con el contenido falso.
 
-Para ello haremos un <inline-code>tbody</inline-code> alternativo al de la tabla real que se enseñará si se cumple el booleano <inline-code>isLoading</inline-code>. Dentro de este <inline-code>tbody</inline-code> generaremos 3 rows donde cada una tiene las columnas que ya conocemos y cada columna tiene un <inline-code>div</inline-code> de anchura random. Esto lo estoy haciendo con Vue.js pero lo puedes hacer con cualquier otro framework, es solo modificar el template según una variable booleana que puede ser cambiada.
+Para ello haremos un `tbody` alternativo al de la tabla real que se enseñará si se cumple el booleano `isLoading`. Dentro de este `tbody` generaremos 3 rows donde cada una tiene las columnas que ya conocemos y cada columna tiene un `div` de anchura random. Esto lo estoy haciendo con Vue.js pero lo puedes hacer con cualquier otro framework, es solo modificar el template según una variable booleana que puede ser cambiada.
 
 ```xml
 <tbody v-if="isLoading">
@@ -100,7 +100,7 @@ Resultado:
 
 ### Paso 2: Crear la animación vertical
 
-<strong>Esta animación mostrará una fila después de otra y también las retirará una vez que estén las 3 cargadas. </strong> Primero la definimos y luego la aplicamos a <inline-code>datagrid__row</inline-code>. En las filas 2 y 3 les pondremos un delay para obtener el efecto deseado: una fila después de otra.
+<strong>Esta animación mostrará una fila después de otra y también las retirará una vez que estén las 3 cargadas. </strong> Primero la definimos y luego la aplicamos a `datagrid__row`. En las filas 2 y 3 les pondremos un delay para obtener el efecto deseado: una fila después de otra.
 
 ```css
 @keyframes aniVertical {
@@ -149,11 +149,11 @@ Se basa en utilizar propiedades que hemos visto en <strong>Photoshop o Sketch</s
     width="100%"
     alt="Foto de propiedades de opacidad"/>
 
-Una de los modos de opacidad es <inline-code>overlay</inline-code>, que hace que los colores oscuros de la capa al que se la aplicamos solo se vean reflejados en otros colores oscuros de capas que están por debajo y por tanto no se apliquen a blancos.
+Una de los modos de opacidad es `overlay`, que hace que los colores oscuros de la capa al que se la aplicamos solo se vean reflejados en otros colores oscuros de capas que están por debajo y por tanto no se apliquen a blancos.
 
-Resulta que tenemos disponibles estas mismas propiedades en CSS a través de <inline-code>mix-blend-mode</inline-code>. Esto nos viene genial para solucionar el problema de tener diferentes divs de contenido por el que la animación tiene que pasar.
+Resulta que tenemos disponibles estas mismas propiedades en CSS a través de `mix-blend-mode`. Esto nos viene genial para solucionar el problema de tener diferentes divs de contenido por el que la animación tiene que pasar.
 
-Aplicaremos un <inline-code>:before</inline-code> a <inline-code>datagrid__row</inline-code> con una posición absoluta a su elemento para que ocupe y esté por encima de toda la fila y después crearemos una animación, <inline-code>aniHorizontal</inline-code>, que recorra el contenido.
+Aplicaremos un `:before` a `datagrid__row` con una posición absoluta a su elemento para que ocupe y esté por encima de toda la fila y después crearemos una animación, `aniHorizontal`, que recorra el contenido.
 
 ```css
 @keyframes aniHorizontal {
@@ -193,7 +193,7 @@ Resultado:
 
 <Component :is="extraComponentLoader" :blend="false" />
 
-Por último aplicamos el <inline-code>mix-blend-mode: overlay</inline-code> y mágicamente conseguimos que se junten las animaciones verticales y horizontales.
+Por último aplicamos el `mix-blend-mode: overlay` y mágicamente conseguimos que se junten las animaciones verticales y horizontales.
 
 ```css
 .datagrid__row:before {
@@ -207,17 +207,17 @@ Resultado:
 ## Juega con el resultado final
 
 Todos los ejemplos que has visto anteriormente no son imágenes ni videos, son un único componente de Vue que he cambiado en cada caso modificando sus props.
-Ahora puedes jugar con esta variación del componente dándole click al checkbox de <inline-code>loading</inline-code> que hará que cambie el estado de normal a cargando.
+Ahora puedes jugar con esta variación del componente dándole click al checkbox de `loading` que hará que cambie el estado de normal a cargando.
 
 <Component :is="extraComponentLoader" checkbox :isLoading="false" />
 
-En una aplicación real, la variable de <inline-code>isLoading</inline-code> vendrá dada por el sistema con el que se implemente la carga asíncrona y también será booleana como este checkbox.
+En una aplicación real, la variable de `isLoading` vendrá dada por el sistema con el que se implemente la carga asíncrona y también será booleana como este checkbox.
 
 ## Cosas a tener en cuenta sobre blend-mode
 
-- La propiedad de CSS <inline-code>mix-blend-mode: overlay</inline-code> sólo funciona si los fondos de las filas son totalmente blancos o totalmente negros (la gran mayoría de los casos).
+- La propiedad de CSS `mix-blend-mode: overlay` sólo funciona si los fondos de las filas son totalmente blancos o totalmente negros (la gran mayoría de los casos).
 
-- <inline-code>Mix-blend-mode</inline-code> por ahora no está disponible para IE o Edge. Pero esto cambiará dentro de un tiempo según [Microsoft](https://developer.microsoft.com/en-us/microsoft-edge/platform/status/mixblendmode/). Puedes ver su soporte [aquí](https://caniuse.com/#feat=css-mixblendmode)
+- `Mix-blend-mode` por ahora no está disponible para IE o Edge. Pero esto cambiará dentro de un tiempo según [Microsoft](https://developer.microsoft.com/en-us/microsoft-edge/platform/status/mixblendmode/). Puedes ver su soporte [aquí](https://caniuse.com/#feat=css-mixblendmode)
 
 Si lo que quieres es crear un Skeleton Screen sobre fondo que no sea blanco o negro, o tienes que soportar IE o Edge, te aconsejo esta [otra solución que utiliza SVG](http://danilowoz.com/create-vue-content-loader/). Es mucho más compleja, no estoy segura de que puedas hacerlo entre diferentes divs y requiere que utilices un paquete externo pero es la mejor alternativa que he podido encontrar.
 

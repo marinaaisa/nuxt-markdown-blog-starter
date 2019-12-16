@@ -14,14 +14,15 @@
           <div class="elevate-cover__left">
             <span class="blogSelected-year">{{ year }}</span>
             —
-            <nuxt-link
-              v-if="trans"
-              v-for="(locale, i) in showLocales"
-              :key="i"
-              :to="`${locale.code == 'en' ? '' : '/' + locale.code}/blog/${trans}`"
-            >
-                {{ $t('changeLanguagePost') }}
-            </nuxt-link>
+            <template v-if="trans">
+              <nuxt-link
+                v-for="(locale, i) in showLocales"
+                :key="i"
+                :to="`${locale.code == 'en' ? '' : '/' + locale.code}/blog/${trans}`"
+              >
+                  {{ $t('changeLanguagePost') }}
+              </nuxt-link>
+            </template>
             <span v-else>{{ $t('soonLanguagePost') }}</span>
             <h1 class="elevate-cover__title">
               {{ title }}
@@ -54,7 +55,7 @@
 </template>
 
 <script lang="js">
-  
+
   import DynamicMarkdown from "~/components/Markdown/DynamicMarkdown.vue"
 
 
@@ -69,16 +70,12 @@
         trans: attr.trans,
         year: attr.year,
         id: attr.id,
-        owner: attr.owner,
-        colors: attr.colors,
-        role: attr.role,
         cardAlt: attr.cardAlt,
         noMainImage: attr.noMainImage,
         description: attr.description,
-        related: attr.related,
         extraComponent: attr.extraComponent,
-        renderFunc: fileContent.vue.render,
-        staticRenderFuncs: fileContent.vue.staticRenderFns,
+        renderFunc: `(${fileContent.vue.render})`,
+        staticRenderFuncs: `[${fileContent.vue.staticRenderFns}]`,
         image: {
           main: attr.image && attr.image.main,
           og: attr.image && attr.image.og

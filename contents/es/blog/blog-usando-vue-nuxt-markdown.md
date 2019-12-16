@@ -31,7 +31,7 @@ Nuxt, al seguir la arquitectura [JAMStack](https://jamstack.org/), está constru
 
 ### Importación de los artículos en la página principal dependiendo del idioma
 
-Mediante la función asíncrona <inline-code>asyncData</inline-code> que proporciona Nuxt solo en sus páginas (no en sus componentes) hago una importación de los Markdown que tengo guardados en la carpeta <inline-code>content</inline-code> del proyecto. Posteriormente los devuelvo en forma de promesa como un array de objetos. Como puedes ver a continuación, la importación depende de la constante <inline-code>blogs</inline-code> que será el array <inline-code>blogsEs</inline-code> o <inline-code>blogsEn</inline-code> dependiendo del idioma de la página.
+Mediante la función asíncrona `asyncData` que proporciona Nuxt solo en sus páginas (no en sus componentes) hago una importación de los Markdown que tengo guardados en la carpeta `content` del proyecto. Posteriormente los devuelvo en forma de promesa como un array de objetos. Como puedes ver a continuación, la importación depende de la constante `blogs` que será el array `blogsEs` o `blogsEn` dependiendo del idioma de la página.
 
 ```javascript
 import blogsEn from '~/contents/en/blogsEn.js'
@@ -54,7 +54,7 @@ async asyncData ({app}) {
 }
 ```
 
-La razón por la cual tengo los arrays de los nombres de los blogs importados desde fuera es porque quiero utilizarlos también para generar las páginas de forma estática a través del objeto [generate](https://nuxtjs.org/api/configuration-generate/) en la configuración de Nuxt, fichero <inline-code>nuxt.config.js</inline-code>.
+La razón por la cual tengo los arrays de los nombres de los blogs importados desde fuera es porque quiero utilizarlos también para generar las páginas de forma estática a través del objeto [generate](https://nuxtjs.org/api/configuration-generate/) en la configuración de Nuxt, fichero `nuxt.config.js`.
 
 ```javascript
 import blogsEn from '~/contents/en/blogsEn.js'
@@ -73,7 +73,7 @@ generate: {
 
 Nuxt tiene una funcionalidad muy interesante y es la creación de [rutas dinámicas](https://nuxtjs.org/guide/routing/#dynamic-routes).
 
-En la siguiente importación vuelvo a utilizar la función <inline-code>asyncData</inline-code> en vez de <inline-code>data</inline-code> como suele hacerse en Vue, para primero importar cada Markdown y después devolver un nuevo objeto con la información que quiero utilizar en el template de la página.
+En la siguiente importación vuelvo a utilizar la función `asyncData` en vez de `data` como suele hacerse en Vue, para primero importar cada Markdown y después devolver un nuevo objeto con la información que quiero utilizar en el template de la página.
 **En la importación juego con que la URL es igual al nombre de cada archivo markdown.** 
 En el caso de que el archivo md no exista simplemente irá a la página 404.
 
@@ -96,9 +96,9 @@ async asyncData ({params, app}) {
 }
 ```
 
-Si quisieramos crear un portfolio sería exactamente igual que el blog. Crearíamos dentro de <inline-code>contents</inline-code> una carpeta llamada <inline-code>portfolio</inline-code> y haríamos el mismo proceso que hemos hecho con <inline-code>blogs</inline-code>.
+Si quisieramos crear un portfolio sería exactamente igual que el blog. Crearíamos dentro de `contents` una carpeta llamada `portfolio` y haríamos el mismo proceso que hemos hecho con `blogs`.
 
-El loader para archivos Markdown de Webpack que utilizo es: [frontmatter-markdown-loader](https://www.npmjs.com/package/frontmatter-markdown-loader) que me permite meter componentes de Vue dentro de markdown, así como extraer los atributos <inline-code>frontmatter</inline-code> como hacen generadores estáticos como Jekyll. Y para que el código se vea así de bonito le aplico: [HighlightJS](https://highlightjs.org/)
+El loader para archivos Markdown de Webpack que utilizo es: [frontmatter-markdown-loader](https://www.npmjs.com/package/frontmatter-markdown-loader) que me permite meter componentes de Vue dentro de markdown, así como extraer los atributos `frontmatter` como hacen generadores estáticos como Jekyll. Y para que el código se vea así de bonito le aplico: [HighlightJS](https://highlightjs.org/)
 
 ## Hablemos de performance
 
@@ -146,7 +146,7 @@ Para traducir la web en inglés y español utilizo [nuxt-i18n](https://github.co
 
 - Lazy loading de componentes e imágenes en Nuxt, te contaré qué paquetes utilizo y el componente propio que hice para renderizar una primera imagen *placeholder* en base64 y después de forma asíncrona la imagen final.
 
-- Cómo utilizar <inline-code>analyze</inline-code> de Nuxt para analizar el JS que genera Webpack en nuestra app y poder optimizarlo.
+- Cómo utilizar `analyze` de Nuxt para analizar el JS que genera Webpack en nuestra app y poder optimizarlo.
 
 - El gran error que cometí en el camino: Vuex. <nuxt-link to="/es/blog/vuex-que-es-cuando-utilizarlo">Ya lo puedes leer aquí</nuxt-link>.
 
