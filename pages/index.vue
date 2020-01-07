@@ -42,6 +42,7 @@
         htmlAttrs: {
           lang: this.$i18n.locale,
         },
+        script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],
         meta: [
           { name: "author", content: "Marina Aisa" },
           { name: "description", property: "og:description", content: this.$t('indexPageHead.description'), hid: "description" },
