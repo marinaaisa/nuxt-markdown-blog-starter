@@ -1,12 +1,18 @@
 const builtAt = new Date().toISOString()
 const path = require('path')
 const { I18N } = require('./locales/i18n-nuxt-config')
-import blogsEn from './contents/en/blogsEn.js'
-import blogsEs from './contents/es/blogsEs.js'
+import fs from 'fs'
 import Mode from "frontmatter-markdown-loader/mode"
-
 import MarkdownIt from 'markdown-it'
 import mip from 'markdown-it-prism'
+
+function getPaths (lang, type) {
+  let initial = lang
+  if (lang === 'en') { initial = '' }
+  return fs.readdirSync(path.resolve(__dirname, 'contents', `${lang}/${type}`))
+    .filter(filename => path.extname(filename) === '.md')
+    .map(filename => `${initial}/${type}/${path.parse(filename).name}`)
+}
 
 const md = new MarkdownIt({
   html: true,
@@ -136,7 +142,7 @@ module.exports = {
     routes: [
       '/es', '404'
     ]
-    .concat(blogsEn.map(w => `/blog/${w}`))
-    .concat(blogsEs.map(w => `es/blog/${w}`))
+    .concat(getPaths('es', 'blog'))
+    .concat(getPaths('en', 'blog'))
   }
 }
